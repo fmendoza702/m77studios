@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content \"c:\\Users\\fmend\\OneDrive\\SouceCode\\Websites\\m77studios\\index.html\")",
+      "Bash(Select-Object -Skip 1955 -First 3)",
+      "Bash(powershell.exe -Command \"Get-Content ''c:\\Users\\fmend\\OneDrive\\SouceCode\\Websites\\m77studios\\index.html'' | Select-Object -Skip 1955 -First 5\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"c:\\Users\\fmend\\OneDrive\\SouceCode\\Websites\\m77studios\\fix-handyman.ps1\")",
+      "Bash(powershell.exe:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
