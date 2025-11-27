@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenScape Solutions | Professional Landscaping Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --primary-light: #22c55e;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray-800: #1f2937;
+            --gray-600: #4b5563;
+            --gray-400: #9ca3af;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--gray-100);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            padding: 10px 20px;
+            background: var(--dark-light);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid var(--gray-800);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+        .header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-800);
+        }
+
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--gray-400); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(22, 163, 74, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 18px; color: var(--gray-400); margin-bottom: 30px; }
+        .hero-buttons { display: flex; gap: 15px; }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--gray-600);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+        .hero-image {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+        }
+
+        .services { padding: 100px 0; background: var(--dark-light); }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span { color: var(--primary); }
+        .section-header p { color: var(--gray-400); font-size: 18px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+        .service-card {
+            background: var(--dark);
+            border: 1px solid var(--gray-800);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(22, 163, 74, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(22, 163, 74, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 15px; }
+        .service-card p { color: var(--gray-400); line-height: 1.7; }
+
+        .maintenance { padding: 100px 0; background: var(--dark); }
+
+        .maintenance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .maintenance-item {
+            background: var(--dark-light);
+            border: 1px solid var(--gray-800);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .maintenance-item:hover {
+            border-color: var(--primary);
+        }
+
+        .maintenance-item .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .maintenance-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .maintenance-item p { color: var(--gray-400); font-size: 14px; }
+
+        .why-us { padding: 100px 0; background: var(--dark-light); }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+        .why-image {
+            background: linear-gradient(135deg, var(--gray-800) 0%, var(--dark) 100%);
+            border-radius: 20px;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            border: 1px solid var(--gray-800);
+        }
+
+        .why-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .why-content h2 span { color: var(--primary); }
+        .why-list { list-style: none; }
+        .why-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+
+        .why-list .check {
+            width: 28px;
+            height: 28px;
+            background: rgba(22, 163, 74, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .why-list h4 { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+        .why-list p { color: var(--gray-400); font-size: 15px; }
+
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta p { font-size: 18px; color: var(--white); opacity: 0.9; margin-bottom: 30px; }
+
+        .cta-btn {
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+        .cta-phone { margin-top: 20px; font-size: 24px; font-weight: 700; color: var(--white); }
+
+        .footer {
+            background: var(--dark);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p { color: var(--gray-400); margin-top: 15px; line-height: 1.7; }
+        .footer-column h4 { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--white); }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a { color: var(--gray-400); text-decoration: none; transition: color 0.3s; }
+        .footer-column a:hover { color: var(--primary); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--gray-800);
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 36px; }
+            .hero-buttons { justify-content: center; }
+            .hero-image { height: 300px; font-size: 80px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .maintenance-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: 1fr; }
+            .why-image { height: 300px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .section-header h2 { font-size: 28px; }
+            .hero-buttons { flex-direction: column; }
+            .maintenance-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .back-btn { padding: 8px 16px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html#portfolio" class="back-btn">← Back to M77 Studios</a>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🌿</div>
+                    GreenScape
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#maintenance">Maintenance</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="nav-cta">Free Estimate</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Beautiful <span>Landscapes</span> That Last</h1>
+                    <p>Professional landscaping design, installation, and maintenance. We transform outdoor spaces into stunning, sustainable environments you'll love.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">
+                            Get Free Estimate
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#services" class="btn-secondary">Our Services</a>
+                    </div>
+                </div>
+                <div class="hero-image">🌳</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Services</span></h2>
+                <p>Complete landscaping solutions for residential and commercial properties</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Landscape Design</h3>
+                    <p>Custom landscape designs tailored to your property and lifestyle. 3D renderings help you visualize the finished result.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Sod & Turf Installation</h3>
+                    <p>Premium sod installation for lush, green lawns. We also offer artificial turf for low-maintenance alternatives.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌳</div>
+                    <h3>Tree & Shrub Planting</h3>
+                    <p>Strategic planting of trees, shrubs, and ornamental plants. We select species perfect for your climate and soil.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Irrigation Systems</h3>
+                    <p>Efficient sprinkler and drip irrigation installation. Smart controllers to optimize water usage and save money.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪨</div>
+                    <h3>Hardscaping</h3>
+                    <p>Patios, walkways, retaining walls, and outdoor living spaces. Quality stonework and pavers built to last.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Landscape Lighting</h3>
+                    <p>Enhance beauty and security with professional landscape lighting. LED systems that are energy efficient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="maintenance" id="maintenance">
+        <div class="container">
+            <div class="section-header">
+                <h2>Weekly <span>Maintenance</span></h2>
+                <p>Keep your landscape looking its best year-round</p>
+            </div>
+            <div class="maintenance-grid">
+                <div class="maintenance-item">
+                    <div class="icon">🌿</div>
+                    <h3>Lawn Mowing</h3>
+                    <p>Weekly mowing & edging</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">🍂</div>
+                    <h3>Leaf Removal</h3>
+                    <p>Seasonal cleanup</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">✂️</div>
+                    <h3>Hedge Trimming</h3>
+                    <p>Shape & maintain shrubs</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">🌸</div>
+                    <h3>Flower Beds</h3>
+                    <p>Weeding & mulching</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">💧</div>
+                    <h3>Irrigation Check</h3>
+                    <p>System monitoring</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">🧪</div>
+                    <h3>Fertilization</h3>
+                    <p>Seasonal treatments</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">🌲</div>
+                    <h3>Tree Care</h3>
+                    <p>Pruning & health checks</p>
+                </div>
+                <div class="maintenance-item">
+                    <div class="icon">🧹</div>
+                    <h3>Property Cleanup</h3>
+                    <p>Debris removal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="about">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-image">🏡</div>
+                <div class="why-content">
+                    <h2>Why Choose <span>GreenScape?</span></h2>
+                    <ul class="why-list">
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>20+ Years Experience</h4>
+                                <p>Two decades of creating beautiful landscapes in the community.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>Licensed & Insured</h4>
+                                <p>Fully licensed contractors with comprehensive liability coverage.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>Sustainable Practices</h4>
+                                <p>Eco-friendly methods that are good for your property and the planet.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <div>
+                                <h4>Satisfaction Guaranteed</h4>
+                                <p>We're not happy until you're happy. That's our promise.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready for a Beautiful Landscape?</h2>
+            <p>Get a free consultation and estimate for your property</p>
+            <a href="mailto:info@greenscapesolutions.com" class="cta-btn">Schedule Free Consultation</a>
+            <div class="cta-phone">📞 (555) 901-2345</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">🌿</div>
+                        GreenScape
+                    </a>
+                    <p>Creating beautiful, sustainable landscapes for homes and businesses since 2004.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Installation</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Irrigation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">(555) 901-2345</a></li>
+                        <li><a href="#">info@greenscapesolutions.com</a></li>
+                        <li><a href="#">Portland, OR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 GreenScape Solutions. All rights reserved. | Sample website by M77 Studios</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
