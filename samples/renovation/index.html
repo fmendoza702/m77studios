@@ -167,13 +167,15 @@
         .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
 
         .hero-image {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 20px;
             height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .services { padding: 100px 0; background: var(--dark-light); }
@@ -231,14 +233,16 @@
 
         .gallery-item {
             aspect-ratio: 4/3;
-            background: linear-gradient(135deg, var(--gray-800) 0%, var(--dark-light) 100%);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
+            overflow: hidden;
             border: 1px solid var(--gray-800);
             transition: all 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .gallery-item:hover {
@@ -250,14 +254,16 @@
         .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 
         .why-image {
-            background: linear-gradient(135deg, var(--gray-800) 0%, var(--dark) 100%);
             border-radius: 20px;
             height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
+            overflow: hidden;
             border: 1px solid var(--gray-800);
+        }
+
+        .why-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .why-content h2 {
@@ -403,7 +409,7 @@
                         <a href="#gallery" class="btn-secondary">View Our Work</a>
                     </div>
                 </div>
-                <div class="hero-image">🛁</div>
+                <div class="hero-image"><img src="images/modern-kitchen.jpg" alt="Modern luxury kitchen renovation"></div>
             </div>
         </div>
     </section>
@@ -446,12 +452,12 @@
                 <p>See the transformations we've created for happy homeowners</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item">🍳</div>
-                <div class="gallery-item">🛁</div>
-                <div class="gallery-item">🚿</div>
-                <div class="gallery-item">🪞</div>
-                <div class="gallery-item">🏠</div>
-                <div class="gallery-item">✨</div>
+                <div class="gallery-item"><img src="images/luxury-bath.jpg" alt="Luxury bathroom renovation"></div>
+                <div class="gallery-item"><img src="images/spa-tub.jpg" alt="Spa bathroom with soaking tub"></div>
+                <div class="gallery-item"><img src="images/glass-shower.jpg" alt="Modern glass shower"></div>
+                <div class="gallery-item"><img src="images/pendant-lights.jpg" alt="Kitchen with pendant lights"></div>
+                <div class="gallery-item"><img src="images/before-after.jpg" alt="Kitchen before and after"></div>
+                <div class="gallery-item"><img src="images/in-progress.jpg" alt="Renovation in progress"></div>
             </div>
         </div>
     </section>
@@ -459,7 +465,7 @@
     <section class="why-us" id="about">
         <div class="container">
             <div class="why-grid">
-                <div class="why-image">✨</div>
+                <div class="why-image"><img src="images/consultation.jpg" alt="Designer consultation"></div>
                 <div class="why-content">
                     <h2>Why Choose <span>Prestige?</span></h2>
                     <ul class="why-list">
